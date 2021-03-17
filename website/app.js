@@ -2,7 +2,7 @@
 // Personal API Key for OpenWeatherMap API
 const urlBase = 'http://api.openweathermap.org/data/2.5/weather?zip='
 const apiKey = 'dc282be1a92d9f4a5f31d85a58fdb3cb'
-const urlParams = ',us&units=standard&appid='
+const urlParams = ',us&units=imperial&appid='
 
 // global variables for user inputs
 const zipCode = document.getElementById('zip')
@@ -32,18 +32,17 @@ const performAction = async (event) => {
 /* Function to update HTML to parse data from OpenWeather API */
 updateHTML = async () => {
   const res = await fetch('/all');
-  const jsonRes = await res.json();
-
-  // convert standard temp to metric and imperial
-  let metric = convertMetric(jsonRes.temperature);
-  let imperial = convertImperial(jsonRes.temperature);
-
-  entryBox.style.display = 'block';
-  date.innerHTML = `${jsonRes.date}`;
-  temp.innerHTML = `${metric}°C / 
-                    ${imperial}°F`;
-  content.innerHTML = `${jsonRes.content}`;
-
+  try {
+    const jsonRes = await res.json();
+    console.log(jsonRes);
+  
+    entryBox.style.display = 'block';
+    temp.innerHTML = Math.floor(jsonRes.temperature) + '°F';
+    content.innerHTML = jsonRes.content;
+    date.innerHTML = jsonRes.date;    
+  } catch(error) {
+    console.log(`Error: ${error}`);
+  }
 }
 
 /* Function to POST data */
@@ -92,20 +91,6 @@ const dateBuilder = () => {
 
   let currentDate = `${day} ${month} ${date}, ${year}`
   return currentDate;
-}
-
-/* Convert kelvin to fahrenheit */
-const convertImperial = (temp) => {
-  const kelvinToImperial = ((temp - 273.15) * 9/5 + 32);
-  const result = Math.floor(kelvinToImperial);
-  return result;
-}
-
-/* Convert kelvin to celsius */
-const convertMetric = (temp) => {
-  const kelvinToMetric = (temp - 273.15); 
-  const result = Math.floor(kelvinToMetric);
-  return result;
 }
 
 /* Function called by event listener */
