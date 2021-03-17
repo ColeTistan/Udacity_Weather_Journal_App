@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: url('./img/spring.jpg');
+    background-size: cover;
+    background-position: top center;
+    width: 100%;
+    height: 100vh;
+    transition: 0.4s;
+}
+
+header {
+    margin: 15px;
+    font-size: 20px;
+}
+
+header .title {
+    color: #333;
+    text-shadow: 0px 0px 1px #333;
+    background: #eee;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.holder {
+    color: #333;
+}
+
+#zip {
+    width: 75%;
+    height: 2rem;
+    border: none;
+    padding: 10px;
+    outline: none;
+    background: rgba(255, 255, 225, 0.3);
+    border-radius: 16px 16px 0px 0px;
+    transition: all 0.2s ease-in;
+}
+
+#zip:hover {
+    width: 75%;
+    height: 2rem;
+    border: none;
+    padding: 10px;
+    outline: none;
+    background: #eee;
+    box-shadow: 1px 2px 7px #555;
+    transition: all 0.2s ease-in;
+}
+
+#feelings {
+    background-color: #eee;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 2px 4px #555;
+    outline: none;
+    resize: none;
+}
+
+#generate {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    padding: 5px 0 5px 0;
+    border-radius: 8px;
+    border: none;
+    border-color: rgb(249, 3, 165);
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+}
+
+#generate:hover {
+    background-color: rgb(249, 3, 165);
+    color: #eee;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    box-shadow: 1px 2px 7px #555;
+}
+
+.entry {
+    height: 12em;
+    color: #333;
+    margin: 50px;
+    padding: 10px;
+    background: rgba(255, 255, 225, 0.3);
+}
+
+.entry .title {
+    background: rgba(255, 255, 225, 0.4);
+    border-radius: 4px;
+    font-size: 24px;
+    color: #222;
+    text-shadow: 0px 0px 1px #333;
+    padding: 5px;
+}
+
+#temp {
+    margin: 10px;
+}
+
+#entryHolder {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px #333;
+    margin: 15px;
+    display: none;
+}
